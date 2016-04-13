@@ -27,7 +27,7 @@ def keys_left():
     return jsonify({'keys left': left})
 
 
-@app.route('/api/keys/generate', methods=['GET'])
+@app.route('/api/keys', methods=['POST'])
 def key_new():
     """
     :return: генерирует новый ключ для клиента
@@ -54,7 +54,7 @@ def key_info(key):
     return jsonify({'key': key, 'status': status})
 
 
-@app.route('/api/keys/<string:key>', methods=['DELETE'])
+@app.route('/api/keys/<string:key>', methods=['PUT'])
 def key_remove(key):
     """
     :param key: ключ, по которому запрашивается информация в запросе
